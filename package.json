@@ -4,8 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch:sass": "sass --watch src/scss:assets/",
+    "build:sass": "sass --style=compressed src/scss:assets/",
+    "build:js": "terser src/js/main.js --compress --source-map --output"
   },
   "author": "Wesley Soares",
-  "license": "ISC"
+  "license": "ISC",
+    "devDependencies": {
+    "crossenv": "^0.0.2-security",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "sass": "^1.50.1",
+    "terser": "^5.12.1"
+  }
 }
