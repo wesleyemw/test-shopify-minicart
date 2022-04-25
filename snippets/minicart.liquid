@@ -3,76 +3,57 @@
 				<h1>Cart</h1>
 				<a href="#" class="only-lg minicart-continue-message">Continue Shopping</a>
 
-				<div class="minicart-items-loop">
-
-                    <div class="minicart-items-header">
-                        <p>Price</p>
-                        <p>Quantity</p>
-                        <p>Total</p>
+				<template v-if="cart && cart.items.length > 0">
+                    <div class="minicart-items-loop">
+                    
+                        <div class="minicart-items-header">
+                            <p>Price</p>
+                            <p>Quantity</p>
+                            <p>Total</p>
+                        </div>
+                    
+                                        <!-- usar grid aqui -->
+                        <div class="minicart-item-single" v-for="item in cart.items">
+                            <div class="item-single-img">
+                                <img :src="item.image" :alt="item.title" />
+                            </div>
+                            <div class="item-single-description">
+                                        <div>
+                                            <p class="product-title"> ${ item.title }</p>
+                                            <p class="product-variant">${ item.options_by_name }</p>
+                                            <a href="#" class="product-remove only-lg">Remove item</a>
+                                        </div>
+            
+                                        <div>
+                                            <p class="product-price-single only-lg">${ money(item.price) }</p>
+                                            <p class="product-quantity">${ item.quantity }</p>
+                                            <p class="product-price-total">${ money( item.price * item.quantity ) }</p>
+                                        </div>
+                                                
+                                            </div>
+                        </div>
                     </div>
 
-                    <!-- usar grid aqui -->
-					<div class="minicart-item-single">
-						<div class="item-single-img">
-                            <img src="https://placekitten.com/100/120" alt="Kitten" />
+                    <div class="minicart-footer">
+                        <div class="minicart-ordernote-container">
+                            <form action="">
+                                <label for="minicart-ordernote">Ordernote</label>
+                                <textarea id="minicart-ordernote" name="minicart-ordernote" rows="5" cols="33"></textarea>
+                            </form>
                         </div>
-						<div class="item-single-description">
-                            <div>
-                                <p class="product-title">Nome produto </p>
-                                <p class="product-variant">Variant</p>
-                                <a href="#" class="product-remove only-lg">Remover item</a>
-                            </div>
-
-                            <div>
-                                <p class="product-price-single only-lg">preco single</p>
-                                <p class="product-quantity">quantidade</p>
-                                <p class="product-price-total">preco total</p>
-                            </div>
-                            
+                        <div class="minicart-subtotal">
+                            <h2>Subtotal</h2>
+                            <p>Price</p>
                         </div>
-
-					</div>
-
-                    <div class="minicart-item-single">
-						<div class="item-single-img">
-                            <img src="https://placekitten.com/100/120" alt="Kitten" />
+                        <div class="minicart-meta">
+                            <p>Mensagem</p>
+                            <a href="" class="minicart-update only-lg">Update Cart</a>
+                            <a href="" class="minicart-checkout">Checkout</a>
                         </div>
-						<div class="item-single-description">
-                            <div>
-                                <p class="product-title">Nome produto </p>
-                                <p class="product-variant">Variant</p>
-                                <a href="#" class="product-remove only-lg">Remover item</a>
-                            </div>
-
-                            <div>
-                                <p class="product-price-single only-lg">preco single</p>
-                                <p class="product-quantity">quantidade</p>
-                                <p class="product-price-total">preco total</p>
-                            </div>
-                            
-                        </div>
-
-					</div>
-				</div>
-
-
-                <div class="minicart-footer">
-                    <div class="minicart-ordernote-container">
-                        <form action="">
-                            <label for="minicart-ordernote">Ordernote</label>
-                            <textarea" id="minicart-ordernote" name="minicart-ordernote" rows="5" cols="33"></textarea>
-                        </form>
                     </div>
-                    <div class="minicart-subtotal">
-                        <h2>Subtotal</h2>
-                        <p>Price</p>
-                    </div>
-                    <div class="minicart-meta">
-                        <p>Mensagem</p>
-                        <a href="" class="minicart-update only-lg">Update Cart</a>
-                        <a href="" class="minicart-checkout">Checkout</a>
-                    </div>
-                </div>
+
+
+                </template>
                 
 			</div>
 		</div>

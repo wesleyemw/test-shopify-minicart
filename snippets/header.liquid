@@ -18,6 +18,36 @@
     <div class="minicart-outer offcanvas closed">
         {% comment %} Minicart will be here {% endcomment %}
         {% render 'minicart' %}
-        
+
     </div>
 </header>
+
+
+
+<script>
+  if (document.querySelector('#header')) {
+    const headerCart = Vue.createApp({
+      delimiters: ['${','}'],
+      data() {
+        return {
+          cartData: store.state.cartState
+        }
+      },
+      methods: {
+        
+        money(value) {
+          if (!value) return 0
+          return "$" + (value/100).toFixed(2)
+        }
+      },
+      computed: {
+        cart() {
+          return this.cartData[0]
+        }
+      },
+      created() {
+        store.getCart()
+      }
+    }).mount('#header')
+  }
+</script>
