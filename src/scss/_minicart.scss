@@ -44,9 +44,13 @@
             }
 
         }
-        &.minicart-closes {
+        &>.minicart-closes {
             display: block;
             position: absolute;
+            border: none;
+            background: transparent;
+            font-size: toRem(48px);
+
             @include bp(L) {
                 top: 0;
                 left:0;
@@ -176,7 +180,7 @@
                     &>.product-quantity {
                         input[type="text"] {
                             background-color: transparent;
-                            max-width: 2.5rem;
+                            max-width: 3rem;
                             border: solid 1px $text;
                             outline: none;
                             text-align: center;

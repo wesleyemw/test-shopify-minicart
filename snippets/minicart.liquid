@@ -1,8 +1,8 @@
 <div class="ws-minicart">
 			<div class="wrapper">
-				<h1>Cart</h1>
-				<a href="#" class="only-lg minicart-continue-message">Continue Shopping</a>
-                <button class="minicart-closes open-offcanvas">X</button>
+				<h1>{{ 'cart.minicart.cart_title' | t }}</h1>
+				<a href="#" class="only-lg minicart-continue-message">{{ 'cart.minicart.continue_shopping_message' | t }}</a>
+                <button class="minicart-closes open-offcanvas">&#215;</button>
 
 				<template v-if="cart && cart.items.length > 0">
                     <div class="minicart-items-loop">
@@ -22,7 +22,7 @@
                                         <div>
                                             <p class="product-title"> ${ item.title }</p>
                                             <p class="product-variant">${ item.options_by_name }</p>
-                                            <a href="#" class="product-remove only-lg" @click="removeCartItem(item)">Remove</a>
+                                            <a href="#" class="product-remove only-lg" @click="removeCartItem(item)">{{ "cart.minicart.remove_item_label" | t }}</a>
                                         </div>
             
                                         <div>
@@ -38,18 +38,18 @@
                     <div class="minicart-footer">
                         <div class="minicart-ordernote-container">
                             <form action="">
-                                <label for="minicart-ordernote">Ordernote</label>
+                                <label for="minicart-ordernote">{{ "cart.minicart.order_note" | t }}</label>
                                 <textarea id="minicart-ordernote" wrap="off" name="minicart-ordernote" v-model="note"></textarea>
                             </form>
                         </div>
                         <div class="minicart-subtotal">
-                            <h2>Subtotal</h2>
+                            <h2>{{ "cart.minicart.sub_total" | t }}</h2>
                             <p>${ money(cart.total_price) }</p>
                         </div>
                         <div class="minicart-meta">
-                            <p>Mensagem</p>
-                            <a href="" class="minicart-update only-lg">Update Cart</a>
-                            <a href="" class="minicart-checkout">Checkout</a>
+                            <p>{{ "cart.minicart.pre_checkout_message" | t }}</p>
+                            <a href="" class="minicart-update only-lg">{{ "cart.minicart.update_cart_label" | t }}</a>
+                            <a href="" class="minicart-checkout">{{ "cart.minicart.checkout_label" | t }}</a>
                         </div>
                     </div>
 
