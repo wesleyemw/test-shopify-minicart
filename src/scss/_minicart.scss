@@ -93,7 +93,7 @@
     }
 
     .minicart-item-single {
-        @extend %outline;
+        //@extend %outline;
         width: 100%;
         display: grid;
         grid-template-columns: fit-content(100px) auto;
