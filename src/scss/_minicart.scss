@@ -100,7 +100,7 @@
             justify-items: end;
             justify-content: end;
             grid-template-columns: repeat(3, 1fr);
-            width: 45%;
+            width: 50%;
             margin-left: auto;
             padding: toRem(24px) 0;
         }
@@ -154,6 +154,8 @@
                         margin: toRem(12px) 0;
                         padding: toRem(8px);
                         max-width: 50%;
+                        @include fontparam('Nunito', 600);
+                        font-size: toRem(14px);
                         &:link, &:visited {
                             color: $text;
                         }

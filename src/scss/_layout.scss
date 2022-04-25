@@ -1,0 +1,77 @@
+header {
+    &>.wrapper {
+        font-size: toRem(18px);
+        @include fontparam('Nunito', 600);
+        margin-top: toRem(24px);
+        margin-bottom: toRem(24px);
+        &>nav {
+            display: flex;
+            a {
+                margin: 0 toRem(16px);
+                text-decoration: none;
+                text-transform: uppercase;
+                        &:link, &:visited {
+                            color: $text;
+                        }
+            }
+            button {
+                display: block;
+                position: absolute;
+                border: none;
+                background: transparent;
+                    text-transform: uppercase;
+                     color: $text;
+            }
+            span {
+                display: block;
+            }
+        }
+    }
+}
+
+
+.product-template {
+    &>.wrapper {
+        display: flex;
+        &>div {
+            @include bp(L) {
+                flex: 1 0 50%;
+            }
+        }
+        &>.product-info {
+            @include fontparam('Nunito', 600);
+            .add-to-cart-button {
+                
+            @extend %button;
+            text-transform: uppercase;
+            background-color: $accent;
+            color:#fff;
+            border: solid 1px $text;
+            box-shadow: none;
+            &:link, &:visited {
+                color: #fff;
+            }
+            }
+        }
+    }
+}
+
+.product-collection {
+    &>.wrapper {
+        @include fontparam('Nunito', 600);
+        & > div.product {
+            @include bp(L) {
+                display: inline-block;
+                width: 47.5%;
+            }
+            &> a {
+                color: $text;
+                text-decoration: none;
+
+                &:link, &:visited {
+                color: $text;
+            }
+            }
+        }
+    }
+}
