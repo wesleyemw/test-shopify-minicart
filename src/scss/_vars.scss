@@ -1,0 +1,38 @@
+@use 'sass:math';
+$font-base: 16px;
+
+$text: #060606;
+$accent: #273e22;
+$cream: #f5f3ee;
+$cream-light: #faf9f6;
+$gray: #737371;
+
+@mixin bp($width) {
+    @if $width==XL {
+        @media only screen and (min-width: 1280px) {
+            @content;
+        }
+    }
+
+    @else if $width==L {
+        @media only screen and (min-width: 960px) {
+            @content;
+        }
+    }
+
+    @else if $width==M {
+        @media only screen and (min-width: 768px) {
+            @content;
+        }
+    }
+
+    @else if $width==S {
+        @media only screen and (min-width: 420px) {
+            @content;
+        }
+    }
+}
+
+@function toRem($value) {
+    @return math.div($value, $font-base) * 1rem; 
+}
