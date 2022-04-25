@@ -22,7 +22,7 @@
 
 /* minicart container **/
 
-
+/* minicart inside container  **/
 .ws-minicart {
     &>.wrapper {
         &>h1, &>.minicart-continue-message {
@@ -62,7 +62,94 @@
     }
 }
 
+/* minicart inside container  **/
 
-.minicart-items-loop {}
+
+
+/* minicart loop - could be inserted better **/
+
+
+.minicart-items-loop {
+    padding: toRem(32px) 0;
+
+    .minicart-items-header {
+        display: none;
+        @include bp(L) {
+
+            display: grid;
+            justify-items: end;
+            justify-content: end;
+            grid-template-columns: repeat(3, 1fr);
+            width: 50%;
+            margin-left: auto;
+            padding: toRem(24px) 0;
+        }
+
+        &>p {
+            place-self: center;
+            text-align: center;
+            @include fontparam('Nunito', 400);
+        }
+    }
+
+    .minicart-item-single {
+        width: 100%;
+        display: grid;
+        grid-template-columns: fit-content(100px) auto;
+        column-gap: toRem(32px);
+        align-items: center;
+
+        @include fontparam('Nunito', 200);
+        font-size: toRem(16px);
+
+        @include bp(L) {
+            background-color: $cream-light;
+            padding: toRem(32px) 0 toRem(32px) toRem(32px);
+        }
+        & + .minicart-item-single {
+            margin-top: 32px;
+        }
+        &>.item-single-description {
+            display: flex;
+            flex-direction: column;
+            @include bp(L) {
+                flex-direction: row;
+            }
+
+            // quantidade e preço total 
+            &>div {
+                &:nth-of-type(1) {
+                    display: flex;
+                    flex-direction: column;
+                    @include bp(L) {
+                        flex: 1 0 8%;
+                    }
+                }
+                &:nth-of-type(2) {
+
+                    outline: 0.1rem #f0f;
+                    display: flex;
+                    justify-content: space-between;
+
+                    @include bp(L) {
+                        flex-direction: row;
+                        flex: 1 0 auto;
+                        align-items: flex-end;
+                    }
+                    &>p {
+                        @include bp(L) {
+                            flex: 1 0 auto;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* minicart loop -  **/
+
 
 
