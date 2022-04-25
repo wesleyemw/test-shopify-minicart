@@ -1,0 +1,27 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+html {
+    font-size: 100%;
+}
+
+body {
+    background-color: $cream;
+}
+
+
+.wrapper {
+    @extend %wrapper;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.no-scroll {
+    overflow: hidden;
+}

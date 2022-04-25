@@ -1,0 +1,43 @@
+%wrapper {
+    width: 90%;
+    max-width: 76rem;
+    margin: 0 auto;
+}
+
+%flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+%clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+%button {
+    display: inline-flex;
+    justify-content: center;
+    max-width: 100%;
+    line-height: 1.2;
+    padding: 1.1em .75em;
+
+    text-decoration: none;
+    &::before, 
+    &::after {
+        content: '';
+        display: inline-block;
+        width: 2em;
+        flex-basis: 2em;
+        float: left;
+    }
+}
+
+
+%outline {
+    outline: solid 1px #f0f;
+}

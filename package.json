@@ -6,7 +6,7 @@
   "scripts": {
     "watch:sass": "sass --watch src/scss:assets/",
     "build:sass": "sass --style=compressed src/scss:assets/",
-    "build:js": "terser src/js/main.js --compress --source-map --output"
+    "build:js": "terser src/js/main.js --compress --source-map --output assets/main.js"
   },
   "author": "Wesley Soares",
   "license": "ISC",

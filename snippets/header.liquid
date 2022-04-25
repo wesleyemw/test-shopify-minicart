@@ -1,0 +1,21 @@
+<header id="header" class="main-header">
+    <div class="wrapper">
+        <nav>
+            {% for link in linklists.main-menu.links %}
+            {% assign child_list_handle = link.title | handleize %}
+            {% if linklists[child_list_handle].links != blank %}
+                <a href="{{ link.url }}">{{ link.title }}</a>
+        
+            {% else %}
+                <a href="{{ link.url }}">{{ link.title }}</a>
+            {% endif %}
+            {% endfor %}
+
+            <button class="open-offcanvas">Toggle minicart</button>
+        </nav>
+
+    </div>
+    <div class="minicart-outer offcanvas closed">
+        Minicart will be here
+    </div>
+</header>
