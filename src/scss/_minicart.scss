@@ -5,7 +5,7 @@
     width: 100vw;
     z-index: 99;
     background-color: $cream;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     transition: transform 0.6s ease-out;
@@ -25,6 +25,7 @@
 /* minicart inside container  **/
 .ws-minicart {
     &>.wrapper {
+        position: relative;
         &>h1, &>.minicart-continue-message {
             text-align: center;
         }
@@ -40,6 +41,15 @@
             }
             &:link, &:visited {
                 color: $text;
+            }
+
+        }
+        &.minicart-closes {
+            display: block;
+            position: absolute;
+            @include bp(L) {
+                top: 0;
+                left:0;
             }
 
         }
@@ -86,7 +96,7 @@
             justify-items: end;
             justify-content: end;
             grid-template-columns: repeat(3, 1fr);
-            width: 50%;
+            width: 45%;
             margin-left: auto;
             padding: toRem(24px) 0;
         }
@@ -131,6 +141,19 @@
                     @include bp(L) {
                         flex: 1 0 8%;
                     }
+                    &>.product-remove {
+                        @extend %button;
+                        text-decoration: none;
+                        text-transform: uppercase;
+                        color: $text;
+                        border: solid 1px $text;
+                        margin: toRem(12px) 0;
+                        padding: toRem(8px);
+                        max-width: 50%;
+                        &:link, &:visited {
+                            color: $text;
+                        }
+                    }
                 }
                 &:nth-of-type(2) {
 
@@ -143,10 +166,21 @@
                         flex: 1 0 auto;
                         align-items: flex-end;
                     }
-                    &>p {
+                    &>p, &>div {
                         @include bp(L) {
                             flex: 1 0 auto;
                             text-align: center;
+                        }
+                    }
+
+                    &>.product-quantity {
+                        input[type="text"] {
+                            background-color: transparent;
+                            max-width: 2.5rem;
+                            border: solid 1px $text;
+                            outline: none;
+                            text-align: center;
+                            padding: toRem(12px);
                         }
                     }
                 }
@@ -205,11 +239,10 @@
                 outline: none;
                 resize: none;
                 width: 100%;
-                height: 12.5rem;
+                height: 8.5rem;
                 max-width: 35rem;
                 @include bp(L) {
                     width: 95%;
-                    height: 15rem;
                 }
             }
         }
@@ -246,7 +279,6 @@
             margin: toRem(18px) 0 0;
             opacity: 0.85;
             transition: opacity 0.4s ease-out;
-
 
             &:first-of-type {
                 @include bp(L) {

@@ -2,6 +2,7 @@
 			<div class="wrapper">
 				<h1>Cart</h1>
 				<a href="#" class="only-lg minicart-continue-message">Continue Shopping</a>
+                <button class="minicart-closes open-offcanvas">X</button>
 
 				<template v-if="cart && cart.items.length > 0">
                     <div class="minicart-items-loop">
@@ -21,12 +22,12 @@
                                         <div>
                                             <p class="product-title"> ${ item.title }</p>
                                             <p class="product-variant">${ item.options_by_name }</p>
-                                            <a href="#" class="product-remove only-lg">Remove item</a>
+                                            <a href="#" class="product-remove only-lg" @click="removeCartItem(item)">Remove</a>
                                         </div>
             
                                         <div>
                                             <p class="product-price-single only-lg">${ money(item.price) }</p>
-                                            <p class="product-quantity">${ item.quantity }</p>
+                                            <div class="product-quantity"><input type="text" v-model="item.quantity"></div>
                                             <p class="product-price-total">${ money( item.price * item.quantity ) }</p>
                                         </div>
                                                 
@@ -38,7 +39,7 @@
                         <div class="minicart-ordernote-container">
                             <form action="">
                                 <label for="minicart-ordernote">Ordernote</label>
-                                <textarea id="minicart-ordernote" wrap="off" name="minicart-ordernote"></textarea>
+                                <textarea id="minicart-ordernote" wrap="off" name="minicart-ordernote" v-model="note"></textarea>
                             </form>
                         </div>
                         <div class="minicart-subtotal">

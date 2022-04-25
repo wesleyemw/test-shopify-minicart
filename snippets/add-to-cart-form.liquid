@@ -1,4 +1,4 @@
-<form action="" id="add-to-cart-form">
+<div id="add-to-cart-form">
 
   <template v-for="(option, i) in form.options" :key="i">
     <div>
@@ -6,9 +6,9 @@
     </div>
   </template>
 
-  <button @click="addToCart" type="submit" name="add" class="add-to-cart-button open-offcanvas">Add to cart</button>
+  <button @click="addToCart" class="add-to-cart-button open-offcanvas">Add to cart</button>
 
-</form>
+</div>
 
 
 <script>
@@ -42,7 +42,7 @@
         },
         methods: {
             addToCart(event) {
-            event.preventDefault()
+            //event.preventDefault()
 
             let selectedVariant
 

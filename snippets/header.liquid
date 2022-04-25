@@ -39,7 +39,17 @@
         }
       },
       methods: {
-        
+        removeCartItem(item) {
+          const data = {
+            "id": item.key,
+            "quantity": 0
+          }
+          axios.post('/cart/change.js', data)
+            .then(response => {
+                store.getCart()
+            })
+            .catch(error => console.log(error))
+        },
         money(value) {
           if (!value) return 0
           return "$" + (value/100).toFixed(2)
