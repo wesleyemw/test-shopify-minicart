@@ -36,3 +36,10 @@ $gray: #737371;
 @function toRem($value) {
     @return math.div($value, $font-base) * 1rem; 
 }
+
+@mixin fontparam($family, $weight, $style: normal, $display:swap) {
+    font-family: $family;
+    font-weight: $weight;
+    font-style: $style;
+    font-display: $display;
+}
