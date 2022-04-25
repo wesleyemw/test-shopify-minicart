@@ -11,7 +11,12 @@
             {% endif %}
             {% endfor %}
 
-            <button class="open-offcanvas">Toggle minicart</button>
+            <button class="open-offcanvas">Cart</button>
+            <span>
+                <template v-if="cart">
+                 ( ${cart.item_count} )
+              </template>
+            </span>
         </nav>
 
     </div>
